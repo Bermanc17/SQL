@@ -1,0 +1,25 @@
+--Create a clothing store database
+
+CREATE TABLE CLOTHES(id TEXT, name TEXT, price INTEGER);
+
+INSERT INTO CLOTHES VALUES("womens clothes","shirts",15);
+INSERT INTO CLOTHES VALUES("womens clothes","pants",20);
+INSERT INTO CLOTHES VALUES("womens clothes","belts",18);
+INSERT INTO CLOTHES VALUES("womens clothes","jewelry",16);
+INSERT INTO CLOTHES VALUES("womens clothes","shoes",25);
+INSERT INTO CLOTHES VALUES("mens clothes","shirts",13);
+INSERT INTO CLOTHES VALUES("mens clothes","pants",15);
+INSERT INTO CLOTHES VALUES("mens clothes","tshirts",5);
+INSERT INTO CLOTHES VALUES("mens clothes","belts",13);
+INSERT INTO CLOTHES VALUES("mens clothes","shoes",20);
+INSERT INTO CLOTHES VALUES("kids clothes","shirts",8);
+INSERT INTO CLOTHES VALUES("kids clothes","pants",12);
+INSERT INTO CLOTHES VALUES("kids clothes","shoes",15);
+INSERT INTO CLOTHES VALUES("kids clothes","belts",7);
+INSERT INTO CLOTHES VALUES("kids clothes","tshirts",5);
+
+--What is the total of if I buy all these clothes?
+Select Sum(price) from clothes;
+
+--display the database ordered by price. 
+Select * From clothes order by price
