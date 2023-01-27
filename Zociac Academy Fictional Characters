@@ -1,0 +1,50 @@
+/* Create table about Fictional characters from Zodiac Academy*/
+
+CREATE TABLE characters (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name TEXT,
+    last_name TEXT,
+    fullname TEXT,
+    email TEXT);
+    
+INSERT INTO characters
+    VALUES (1,"Tori","vega","Tori Vega", "Tori@vega.com");
+INSERT INTO characters
+    VALUES (2,"Darcy","vega","Darcy Vega" ,"Darcy@vega.com");
+INSERT INTO characters
+    VALUES (3,"Darius","Acrux","Darius Acrux" ,"Darius@Acrux.com");
+INSERT INTO characters
+    VALUES (4,"Xavier","Acrux","Xavier Acrux" ,"Xavier@Acrux.com");
+
+CREATE TABLE character_Order (id INTEGER PRIMARY KEY,
+    character_id INTEGER,
+    species_order TEXT);
+    
+INSERT INTO character_order (character_id,species_order)
+    VALUES (1,"fae_phoenix");
+INSERT INTO character_order (character_id,species_order)
+    VALUES (2,"fae_phoenix");
+INSERT INTO character_order (character_id,species_order)
+    VALUES (3,"fae_dragon");
+INSERT INTO character_order (character_id,species_order)
+    VALUES (4,"fae_pegasus");
+    
+CREATE TABLE sibling_pairs (id INTEGER PRIMARY KEY,
+    sibling1_id INTEGER,
+    sibling2_id INTEGER);
+    
+INSERT INTO sibling_pairs (sibling1_id,sibling2_id)
+    VALUES  (1,2);
+INSERT INTO sibling_pairs (sibling1_id,sibling2_id)
+    VALUES  (3,4);
+
+SELECT characters.fullname,character_Order.species_order FROM characters
+    JOIN character_order
+    ON characters.id = character_order.character_id;
+
+SELECT a.fullname, b.fullname FROM Sibling_pairs
+    JOIN characters a
+    ON a.id = sibling1_id 
+    JOIN characters b
+    ON b.id = sibling2_id ;
+    
+    
