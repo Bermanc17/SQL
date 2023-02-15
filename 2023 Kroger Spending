@@ -1,0 +1,44 @@
+--I used a spreadsheet of data I kept on my family's spending habits at kroger grocery store and gas using our kroger card when shopping or fueling up--
+
+--What was total amount spent this year in all?--
+Select SUM(price)
+From kroger;
+
+--What was the max and min of this year spending?--
+Select MAx(price),
+Min(price)
+From kroger;
+
+--What was the spending this year?--
+Select AVG(price)
+From kroger;
+
+--What date was the most expensive in 2022?--
+Select MAx(price),
+Date
+From kroger;
+
+--What date was the least expensive in 2022?--
+Select min(price),
+Date
+From kroger;
+
+--what was the highest price spent at fuel center in 2022?--
+Select  max(price)
+From kroger
+Where category like "%Center%";
+
+--what was the lowest price spent at fuel center in 2022?--
+Select  min(price)
+From kroger
+Where category like "%Center%";
+
+--what was the highest price spent at In-store in 2022?--
+Select  max(price)
+From kroger
+Where category like "%store%";
+
+--what was the lowest price spent at In-store in 2022?--
+Select  min(price)
+From kroger
+Where category like "%store%"
