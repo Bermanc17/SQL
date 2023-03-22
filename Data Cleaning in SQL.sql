@@ -39,7 +39,6 @@ From PortfolioProject.dbo.NashvilleHousing
 order by ParcelID
 
 
-
 Select a.ParcelID, a.PropertyAddress, b.ParcelID, b.PropertyAddress, ISNULL(a.PropertyAddress,b.PropertyAddress)
 From PortfolioProject.dbo.NashvilleHousing a
 JOIN PortfolioProject.dbo.NashvilleHousing b
@@ -55,8 +54,6 @@ JOIN PortfolioProject.dbo.NashvilleHousing b
 	on a.ParcelID = b.ParcelID
 	AND a.[UniqueID ] <> b.[UniqueID ]
 Where a.PropertyAddress is null
-
-
 
 
 --------------------------------------------------------------------------------------------------------------------------
@@ -90,13 +87,8 @@ Update NashvilleHousing
 SET PropertySplitCity = SUBSTRING(PropertyAddress, CHARINDEX(',', PropertyAddress) + 1 , LEN(PropertyAddress))
 
 
-
-
 Select *
 From PortfolioProject.dbo.NashvilleHousing
-
-
-
 
 
 Select OwnerAddress
@@ -108,7 +100,6 @@ PARSENAME(REPLACE(OwnerAddress, ',', '.') , 3)
 ,PARSENAME(REPLACE(OwnerAddress, ',', '.') , 2)
 ,PARSENAME(REPLACE(OwnerAddress, ',', '.') , 1)
 From PortfolioProject.dbo.NashvilleHousing
-
 
 
 ALTER TABLE NashvilleHousing
@@ -125,7 +116,6 @@ Update NashvilleHousing
 SET OwnerSplitCity = PARSENAME(REPLACE(OwnerAddress, ',', '.') , 2)
 
 
-
 ALTER TABLE NashvilleHousing
 Add OwnerSplitState Nvarchar(255);
 
@@ -138,8 +128,6 @@ Select *
 From PortfolioProject.dbo.NashvilleHousing
 
 
-
-
 --------------------------------------------------------------------------------------------------------------------------
 
 
@@ -150,8 +138,6 @@ Select Distinct(SoldAsVacant), Count(SoldAsVacant)
 From PortfolioProject.dbo.NashvilleHousing
 Group by SoldAsVacant
 order by 2
-
-
 
 
 Select SoldAsVacant
@@ -167,10 +153,6 @@ SET SoldAsVacant = CASE When SoldAsVacant = 'Y' THEN 'Yes'
 	   When SoldAsVacant = 'N' THEN 'No'
 	   ELSE SoldAsVacant
 	   END
-
-
-
-
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -203,12 +185,9 @@ Select *
 From PortfolioProject.dbo.NashvilleHousing
 
 
-
-
 ---------------------------------------------------------------------------------------------------------
 
 -- Delete Unused Columns but make sure to ask before doing to raw data 
-
 
 
 Select *
